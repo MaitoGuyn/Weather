@@ -17,23 +17,33 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Background="Gray" Grid.Row="0" Grid.RowSpan="3" Margin="15">
+        <StackPanel Background="Gray" Grid.Row="0" Grid.RowSpan="2" Margin="5">
             <TextBlock x:Name="TBW" Background="White" Height="369" Margin="20"></TextBlock>
+        </StackPanel>
+        <StackPanel Background="Gray" Grid.Row="3" Margin="5">
+            <TextBlock x:Name="AverageTempTextBlock" Background="AliceBlue" Margin="5"/>
+            <TextBlock x:Name="MaxTempTextBlock" Background="AliceBlue" Margin="5"/>
+            <TextBlock x:Name="MinTempTextBlock" Background="AliceBlue" Margin="5"/>
+            <TextBlock x:Name="AnomaliesTextBlock" Background="AliceBlue" Margin="5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1"  Grid.Row="0" Margin="10" Background="LightGray">
             <Label Content="Filtr:" Width="40"/>
-            <ComboBox Width="100"/>
+            <ComboBox x:Name="FilterCB" Width="100" SelectionChanged="ComboBox_SelectionChanged"/>
             <Label Content="Sort:" Width="40"/>
-            <ComboBox Width="100"   Height="21"/>
+            <ComboBox x:Name="SortCB" Width="100"   Height="21" SelectionChanged="ComboBox_SelectionChanged_1"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1"  Grid.Row="1" Grid.RowSpan="2" Background="Gray">
             <Label Content="Data:" Width="40"/>
-            <TextBox x:Name="TX1" Text="{Binding DateTime, StringFormat='{}{0:MM/dd/yyyy HH:mm:ss}'}" Background="White" Width="56" Height="50"/>
+            
+            <DatePicker x:Name="DatePicker" HorizontalAlignment="Center" VerticalAlignment="Top" />
             <Label Content="Temp:" Width="40"/>
-            <TextBox x:Name="TX" Background="White" Width="55" Height="50" />
+            <TextBox x:Name="TX" Background="White" Width="70" Height="50" />
+            <Label Content="Status:" Width="40"/>
+            <ComboBox x:Name="CB" Width="70" ></ComboBox>
             <Button Width="34" Height="35" Content="+" Click="Button_Click"/>
+            
         </StackPanel>
 
     </Grid>

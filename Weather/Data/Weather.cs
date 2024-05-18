@@ -8,21 +8,23 @@ namespace Weather.Data
 {
     public class WeatherForApp
     {
-        public WeatherForApp(DateTime dateTime, int temperature)
+        public WeatherForApp(DateTime dateTime, int temperature, string weatherStatus)
         {
             this.dateTime = dateTime;
             this.temperature = temperature;
-            this.WeatherStatus = this.WeatherStatus;
+            this.WeatherStatus = weatherStatus;
         }
         public DateTime dateTime;
 
         public int temperature { get; set; } = 0;
 
-        public string WeatherStatus { get; set; } = "";
+        public string WeatherStatus { get; set; }
+
         public override string ToString()
         {
-            return $"Date: {dateTime}, Temperature: {temperature}°C";
+            return $"Date: {dateTime}, Temperature: {temperature}°C , Status: {WeatherStatus}" ;
         }
 
+       
     }
 }
