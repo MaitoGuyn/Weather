@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +21,29 @@ namespace Weather
     public partial class MainWindow : Window
     {
         private List<WeatherForApp> _weather;
+        private int temperature;
+        private DateTime dateTime;
         public MainWindow()
         {
             InitializeComponent();
 
             _weather = Data.DataContext.Weather;
-
+            
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            temperature = Convert.ToInt32(TX.Text);
+            dateTime = Convert.ToDateTime(TX1.Text);
+            _weather.Add(new WeatherForApp(DateTime.Now, temperature));
+            TBW.Text = "";
+            foreach (WeatherForApp weather in _weather)
+            {
+                TBW.Text += weather.ToString() + "\n";
+            }
+            
+        }
+
 
     }
 }

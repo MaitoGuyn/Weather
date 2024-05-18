@@ -8,27 +8,33 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-           
+            <ColumnDefinition />
+            <ColumnDefinition />
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Border Background="Gray" Margin="15">
-            <WrapPanel Grid.Column="0"  Margin="10" HorizontalAlignment="Center" Background="LightGray">
-                
-            </WrapPanel>
-        </Border>
-        <Border Background="Gray" Margin="15" Grid.Column="1">
-            <WrapPanel Grid.Column="1"  Margin="10" HorizontalAlignment="Center" Background="LightGray">
-                <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"  Background="White">
-                    <ComboBox></ComboBox>
-                </WrapPanel>
-            </WrapPanel>
-        </Border>
-        
+        <StackPanel Background="Gray" Grid.Row="0" Grid.RowSpan="3" Margin="15">
+            <TextBlock x:Name="TBW" Background="White" Height="369" Margin="20"></TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1"  Grid.Row="0" Margin="10" Background="LightGray">
+            <Label Content="Filtr:" Width="40"/>
+            <ComboBox Width="100"/>
+            <Label Content="Sort:" Width="40"/>
+            <ComboBox Width="100"   Height="21"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1"  Grid.Row="1" Grid.RowSpan="2" Background="Gray">
+            <Label Content="Data:" Width="40"/>
+            <TextBox x:Name="TX1" Text="{Binding DateTime, StringFormat='{}{0:MM/dd/yyyy HH:mm:ss}'}" Background="White" Width="56" Height="50"/>
+            <Label Content="Temp:" Width="40"/>
+            <TextBox x:Name="TX" Background="White" Width="55" Height="50" />
+            <Button Width="34" Height="35" Content="+" Click="Button_Click"/>
+        </StackPanel>
+
     </Grid>
 </Window>

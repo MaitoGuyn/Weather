@@ -19,6 +19,10 @@ namespace Weather.Data
         public int temperature { get; set; } = 0;
 
         public string WeatherStatus { get; set; } = "";
+        public override string ToString()
+        {
+            return $"Date: {dateTime}, Temperature: {temperature}°C";
+        }
 
     }
 }
